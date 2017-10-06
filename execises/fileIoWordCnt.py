@@ -33,7 +33,7 @@ def main():
         in_file = open(in_file_name)
         word_cnt = count_word_in_file(in_file)
     except IOError as e:
-        print("open " + in_file_name + ":" + e.message)
+        print("open {}:{}".format(in_file_name, e))
         sys.exit(1)
     else:
         in_file.close()
