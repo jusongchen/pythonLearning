@@ -30,7 +30,7 @@ def main():
     in_file_name = sys.argv[1]
 
     try:
-        in_file = open(in_file_name, 'rt')
+        in_file = open(in_file_name)
         word_cnt = count_word_in_file(in_file)
     except IOError as e:
         print("open " + in_file_name + ":" + e.message)
