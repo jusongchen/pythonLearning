@@ -35,7 +35,7 @@ def main():
     except IOError as e:
         print("open " + in_file_name + ":" + e.message)
         sys.exit(1)
-    finally:
+    else:
         in_file.close()
 
     for k in sorted(word_cnt, key=word_cnt.get, reverse=True):
