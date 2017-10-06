@@ -42,10 +42,12 @@ def main():
     except IOError as e:
         print("open " + out_file_name + ":" + e.message)
         sys.exit(1)
+    try:
+        reverse_lines(in_file, out_file)
+    finally:
+        in_file.close()
+        out_file.close()
 
-    reverse_lines(in_file, out_file)
-    in_file.close()
-    out_file.close()
     sys.exit(0)
 
 

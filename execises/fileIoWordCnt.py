@@ -1,27 +1,25 @@
-# ## Lab: File I/O
-# * write a Python program which prompts the user for a filename, then opens that file and writes the contents of the file to a new file, in reverse order, i.e.,
-
-# <pre><b>
-#     Original file       Reversed file
-#     Line 1              Line 4
-#     Line 2              Line 3
-#     Line 3              Line 2
-#     Line 4              Line 1
-# </b></pre>
+# Lab: File I/O + dicts
+# write a Python program to read a file and count the number of occurrences of each word in the file
+# use a dict, indexed by word, to count the occurrences
+# remember d.get(key) will return None if there is no such key in the dict (vs. d[key] which will throw an exception) and also the in operator
+# treat The and the as the same word when counting
+# print out words and counts, from most common to least common
+# EXTRA: remove punctuation, so Hamlet, == Hamlet
+# Road Not Taken and Hamlet are available at https://github.com/davewadestein/Python-Core
 
 import sys
 
 
 def count_word_in_file(in_file):
-    wordMap = {}
+    word_cnt = {}
     for line in in_file:
         # split line to words
-        for w in line.split():
+        for word in line.split():
             import string
-            lowcase = w.translate(None, string.punctuation).lower()
-            wordMap[lowcase] = wordMap.get(lowcase, 0) + 1
+            lowcase = word.translate(None, string.punctuation).lower()
+            word_cnt[lowcase] = word_cnt.get(lowcase, 0) + 1
 
-    return wordMap
+    return word_cnt
 
 
 def main():
