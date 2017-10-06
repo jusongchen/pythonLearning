@@ -28,17 +28,11 @@ def pluralize(word):
     '''
     if len(word) == 0:
         return word
-    match = re.search(r'.*[sxz]$', word)
-    if match:
-        return match.group(0) + 'es'
+    if re.search(r'.*[sxz]$', word) or re.search(r'.*[^aeioudgkprt]h$', word):
+        return word + 'es'
 
-    match = re.search(r'.*[^aeioudgkprt]h$', word)
-    if match:
-        return match.group(0) + 'es'
-
-    match = re.search(r'.*[^aeiou]y$', word)
-    if match:
-        return match.group(0)[:-1] + 'ies'
+    if re.search(r'.*[^aeiou]y$', word):
+        return word[:-1] + 'ies'
     return word + 's'
 
 
