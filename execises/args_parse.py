@@ -9,7 +9,7 @@ import argparse
 import sys
 
 
-def regexSearchAndPrint(f, pattern):
+def grep(f, pattern):
     '''
     grep(f, pattern) reads from file Object f then search regex pattern and print out matches
     '''
@@ -42,7 +42,7 @@ def main():
         print("open {}:{}".format(filename, e))
         sys.exit(1)
     else:
-        regexSearchAndPrint(f, pattern)
+        grep(f, pattern)
         f.close()
 
 
